@@ -27,12 +27,24 @@ public class PlayerMoveMent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MoveMentDirection = new Vector3(0, 0, 0);
-        ObjectToMove.transform.position = MoveMentDirection;
+        rb = GetComponent<Rigidbody>();
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    void MovePlayer()
+    {
+        if (Input.touchCount > 0)
+        {
+
+        }
+    }
+    private void Update()
+    {
+        
+    }
+    void FixedUpdate()
     {
     }
+       
+
 }

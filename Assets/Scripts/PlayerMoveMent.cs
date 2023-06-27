@@ -17,30 +17,30 @@ public class PlayerMoveMent : MonoBehaviour
 
     Rigidbody rb;
     [SerializeField]GameObject ObjectToMove;
-    [SerializeField] float MoveMentDirection;
+    [SerializeField] float Movementdirection;
     [SerializeField] float Speed;
     [SerializeField] float MaxSpeed;
     [SerializeField] float Acceleration;
     [SerializeField] float JumpForce;
-
+    public float thrust = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        ObjectToMove.GetComponent<Rigidbody>().AddForce(Vector3.forward);
-        // ObjectToMove.transform.position = MoveMentDirection;
+        rb.AddForce(0, 0, thrust, ForceMode.Impulse);
     }
 
     void MovePlayer()
     {
         //1 Forward Movement
-        //rb.AddForce(transform.forward * (Speed*(Time.deltaTime)));
-    
+        rb.AddForce(transform.position *Speed *( Time.deltaTime));
+       //Add later Calculations of acceleration and maxspeed
+        rb.AddForce(0, 0, Speed, ForceMode.Impulse);
     }
     private void Update()
     {
-       // MovePlayer();
+        
     }
     void FixedUpdate()
     {

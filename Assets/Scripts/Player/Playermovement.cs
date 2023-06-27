@@ -15,11 +15,11 @@ public class Playermovement : MonoBehaviour
     //life 
     //animations (if exisiting)
 
-     Vector3 movementDirection;
+    Vector3 movementDirection;
     Rigidbody rb;
-    [SerializeField]GameObject objectToMove;
+    [SerializeField] GameObject objectToMove;
     //current speed*
-    [SerializeField] float speed;
+    [SerializeField] float currentSpeed;
     [SerializeField] float maxSpeed;
     [SerializeField] float Acceleration;
     [SerializeField] float jumpForce;
@@ -33,21 +33,50 @@ public class Playermovement : MonoBehaviour
 
     //}
 
-    void MovePlayer()
+    void start()
     {
-        //1 Forward Movement
-        //Add later Calculations of acceleration and maxspeed
+   
 
-        transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.World);
-        //add touch input for both with began and ended
-        //2. left right movment
-        //3. jump
+      
+       
+    
+  
     }
     private void Update()
     {
         MovePlayer();
     }
-  
+    void MovePlayer()
+    {
+        if (currentSpeed < 0)
+        {
+            currentSpeed = 0;
+        }
+
+        if (currentSpeed > maxSpeed)
+        {
+            currentSpeed = maxSpeed;
+        }
+        if (maxSpeed < 0)
+        {
+            maxSpeed = 0;
+        }
+
+        if (jumpForce < 0)
+        {
+            jumpForce = 0;
+        }
+        Debug.Log($"current Speed:{currentSpeed}");
+        Debug.Log($"max Speed:{maxSpeed}");
+        Debug.Log($"jump force:{jumpForce}");
+        //1 Forward Movement
+        //Add later Calculations of acceleration and maxspeed
+        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
+        //add touch input for both with began and ended
+        //2. left right movment
+        //3. jump
+    }
+
 
 
 }

@@ -23,29 +23,29 @@ public class Playermovement : MonoBehaviour
     [SerializeField] float maxSpeed;
     [SerializeField] float Acceleration;
     [SerializeField] float jumpForce;
-    
+
 
     // Start is called before the first frame update
     //void Start()
     //{
     //    rb = GetComponent<Rigidbody>();
     //    objectToMove.transform.position = movementDirection;
-    
+
     //}
 
-    //void MovePlayer()
-    //{
-    //    //1 Forward Movement
-    //    //Add later Calculations of acceleration and maxspeed
+    void MovePlayer()
+    {
+        //1 Forward Movement
+        //Add later Calculations of acceleration and maxspeed
 
-    //    rb.AddForce(new Vector3(0, 0,Speed * rb.mass ));
-    //    //add touch input for both with began and ended
-    //    //2. left right movment
-    //    //3. jump
-    //}
+        transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.World);
+        //add touch input for both with began and ended
+        //2. left right movment
+        //3. jump
+    }
     private void Update()
     {
-        transform.Translate(Vector3.back*Time.deltaTime*speed,Space.World);
+        MovePlayer();
     }
   
 

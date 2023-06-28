@@ -15,15 +15,17 @@ public class Playermovement : MonoBehaviour
     //life 
     //animations (if exisiting)
 
-    Vector3 movementDirection;
-    Rigidbody rb;
-    [SerializeField] GameObject objectToMove;
-    //current speed*
+    //Vector3 movementDirection;
+    //Rigidbody rb;
+    //[SerializeField] GameObject objectToMove;
+
+    object swipetarget;
+    private Touch movementinput;
     [SerializeField] float currentSpeed;
     [SerializeField] float maxSpeed;
     [SerializeField] float Acceleration;
     [SerializeField] float jumpForce;
-
+    [SerializeField] float time;
 
     // Start is called before the first frame update
     //void Start()
@@ -33,14 +35,11 @@ public class Playermovement : MonoBehaviour
 
     //}
 
-    void start()
+    void Start()
     {
-   
 
-      
-       
-    
-  
+        CheckForValidLogic();
+
     }
     private void Update()
     {
@@ -48,35 +47,60 @@ public class Playermovement : MonoBehaviour
     }
     void MovePlayer()
     {
+
+        //1 Forward Movement
+        //Add later Calculations of acceleration and maxspeed
+        //CheckForValidLogic();
+        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
+        //add touch input for both with began and ended
+        //2. left right movment
+
+
+        if (movementinput.phase == TouchPhase.Began)
+        {
+         //?
+        }
+        if (movementinput.phase == TouchPhase.Moved)
+        {
+            // check if input recived is postivie or negative 
+            // and move player accordingly
+        }
+        if (movementinput.phase==TouchPhase.Ended)
+        {
+            //Move Player Towards Position
+        }
+
+        //3. jump
+    }
+
+
+    void CheckForValidLogic()
+    {
+
+
         if (currentSpeed < 0)
         {
             currentSpeed = 0;
         }
 
-        if (currentSpeed > maxSpeed)
+        if (currentSpeed >= maxSpeed)
         {
-            currentSpeed = maxSpeed;
+            maxSpeed = currentSpeed;
+
         }
-        if (maxSpeed < 0)
+        if (maxSpeed < 1)
         {
-            maxSpeed = 0;
+            maxSpeed = 1;
         }
 
         if (jumpForce < 0)
         {
             jumpForce = 0;
         }
-        Debug.Log($"current Speed:{currentSpeed}");
-        Debug.Log($"max Speed:{maxSpeed}");
-        Debug.Log($"jump force:{jumpForce}");
-        //1 Forward Movement
-        //Add later Calculations of acceleration and maxspeed
-        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
-        //add touch input for both with began and ended
-        //2. left right movment
-        //3. jump
+
+        //Debug.Log($"current Speed:{currentSpeed}");
+        //Debug.Log($"max Speed:{maxSpeed}");
+        //Debug.Log($"jump force:{jumpForce}");
     }
-
-
 
 }

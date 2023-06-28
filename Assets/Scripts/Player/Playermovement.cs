@@ -19,7 +19,7 @@ public class Playermovement : MonoBehaviour
     //Rigidbody rb;
     //[SerializeField] GameObject objectToMove;
 
-    object swipetarget;
+    
     private Touch movementinput;
     [SerializeField] float currentSpeed;
     [SerializeField] float maxSpeed;
@@ -52,7 +52,7 @@ public class Playermovement : MonoBehaviour
         //Add later Calculations of acceleration and maxspeed
         //CheckForValidLogic();
         transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
-        //add touch input for both with began and ended
+        
         //2. left right movment
 
 
@@ -62,6 +62,7 @@ public class Playermovement : MonoBehaviour
         }
         if (movementinput.phase == TouchPhase.Moved)
         {
+        
             // check if input recived is postivie or negative 
             // and move player accordingly
         }
@@ -71,6 +72,7 @@ public class Playermovement : MonoBehaviour
         }
 
         //3. jump
+        //4. slide
     }
 
 

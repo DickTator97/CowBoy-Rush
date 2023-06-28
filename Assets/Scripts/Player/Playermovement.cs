@@ -15,30 +15,22 @@ public class Playermovement : MonoBehaviour
     //life 
     //animations (if exisiting)
 
-    //Vector3 movementDirection;
-    //Rigidbody rb;
-    //[SerializeField] GameObject objectToMove;
+  
+    [SerializeField] GameObject ScreenDirInput;
 
-    
-    private Touch movementinput;
+    private Touch movementTouchInput;
+    private Vector2 touchStartPos, touchEndPos;
     [SerializeField] float currentSpeed;
     [SerializeField] float maxSpeed;
     [SerializeField] float Acceleration;
     [SerializeField] float jumpForce;
     [SerializeField] float time;
 
-    // Start is called before the first frame update
-    //void Start()
-    //{
-    //    rb = GetComponent<Rigidbody>();
-    //    objectToMove.transform.position = movementDirection;
 
-    //}
 
     void Start()
     {
-
-        CheckForValidLogic();
+        Acclerate(Acceleration);
 
     }
     private void Update()
@@ -52,34 +44,59 @@ public class Playermovement : MonoBehaviour
         //Add later Calculations of acceleration and maxspeed
         //CheckForValidLogic();
         transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
-        
+        TouchInputControll();
         //2. left right movment
-
-
-        if (movementinput.phase == TouchPhase.Began)
-        {
-         //?
-        }
-        if (movementinput.phase == TouchPhase.Moved)
-        {
-        
-            // check if input recived is postivie or negative 
-            // and move player accordingly
-        }
-        if (movementinput.phase==TouchPhase.Ended)
-        {
-            //Move Player Towards Position
-        }
 
         //3. jump
         //4. slide
     }
 
-
-    void CheckForValidLogic()
+    void TouchInputControll()
     {
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            touchStartPos = Input.GetTouch(0).position;
+        }
 
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            touchEndPos = Input.GetTouch(0).position;
+            if (touchEndPos.x < touchStartPos.x)
+            {
+                LeftMove();
+            }
 
+            if (touchEndPos.x > touchStartPos.x)
+            {
+                RightMove();
+            }
+        }
+    }
+    void LeftMove()
+    {
+      
+        Acclerate(Acceleration);
+        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed+Acceleration), Space.World);
+    }
+    void RightMove()
+    {
+        Acclerate(Acceleration);
+        transform.Translate(Vector3.right * Time.deltaTime *( currentSpeed+Acceleration), Space.World);
+
+    }
+
+    //void Jump()
+    //{
+
+    //}
+    //void Slide()
+    //{
+
+    //}
+    void Acclerate(float addedspeed)
+    {
+        currentSpeed += addedspeed;
+        
         if (currentSpeed < 0)
         {
             currentSpeed = 0;

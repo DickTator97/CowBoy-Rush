@@ -7,8 +7,9 @@ public class GameManeger : MonoBehaviour
     public void OnMouseDown()
     {
         Debug.Log("Clicked");
-        
+
     }
     #endregion
     #endregion
+
 }

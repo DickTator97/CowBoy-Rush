@@ -12,4 +12,11 @@ public class GameManeger : MonoBehaviour
     #endregion
     #endregion
 
+   [SerializeField] GameObject CemeraFollowObject;
+   [SerializeField] float cameraOffset;
+    private void Update()
+    {
+        
+    }
+
 }

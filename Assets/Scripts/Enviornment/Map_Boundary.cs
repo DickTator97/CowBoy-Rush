@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapBoundry : MonoBehaviour
+public class MapBoundary : MonoBehaviour
 {
 
     [SerializeField] static float left_bound;
@@ -15,4 +16,5 @@ public class MapBoundry : MonoBehaviour
         internal_right = right_bound;
         
     }
+  
 }

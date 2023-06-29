@@ -9,20 +9,18 @@ public class Playermovement : MonoBehaviour
     //2. move player sideways with touch input
     //3. make player jump while dragging finger upwards
     //4. make player slide while dragging finger downwards
-
-
     //score
     //life 
     //animations (if exisiting)
 
-  
-    [SerializeField] GameObject ScreenDirInput;
 
+    [SerializeField] GameObject ScreenDirInput;
     private Touch movementTouchInput;
     private Vector2 touchStartPos, touchEndPos;
+    float swipeThreshold = 50f; // Adjust this value to set the minimum swipe distance
     [SerializeField] float currentSpeed;
     [SerializeField] float maxSpeed;
-    [SerializeField] float Acceleration;
+    [SerializeField] float Acceleration = 0;
     [SerializeField] float jumpForce;
     [SerializeField] float time;
 
@@ -53,35 +51,67 @@ public class Playermovement : MonoBehaviour
 
     void TouchInputControll()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            touchStartPos = Input.GetTouch(0).position;
-        }
+        //*
+        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        //{
+        //    touchStartPos = Input.GetTouch(0).position;
+        //}
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        //   //return later for improvement
+        //    touchEndPos = Input.GetTouch(0).position;
+
+        //    if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && Input.touchCount > 0 )
+        //    {
+        //        if (touchEndPos.x < touchStartPos.x)
+        //        {
+        //            LeftMove();
+        //        }
+
+        //        if (touchEndPos.x > touchStartPos.x)
+        //        {
+        //            RightMove();
+        //        }
+        //    }
+
+        //*
+      
+        if (Input.touchCount > 0)
         {
-            touchEndPos = Input.GetTouch(0).position;
-            if (touchEndPos.x < touchStartPos.x)
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
             {
-                LeftMove();
+                touchStartPos = touch.position;
             }
-
-            if (touchEndPos.x > touchStartPos.x)
+            else if (touch.phase == TouchPhase.Moved)
             {
-                RightMove();
+                Vector2 touchEndPos = touch.position;
+                float swipeDistance = touchEndPos.x - touchStartPos.x;
+
+                if (Mathf.Abs(swipeDistance) > swipeThreshold)
+                {
+                    if (swipeDistance < 0)
+                    {
+                        LeftMove();
+                    }
+                    else
+                    {
+                        RightMove();
+                    }
+                }
             }
         }
     }
     void LeftMove()
     {
-      
+
         Acclerate(Acceleration);
-        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed+Acceleration), Space.World);
+        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
     }
     void RightMove()
     {
         Acclerate(Acceleration);
-        transform.Translate(Vector3.right * Time.deltaTime *( currentSpeed+Acceleration), Space.World);
+        transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
 
     }
 
@@ -93,10 +123,10 @@ public class Playermovement : MonoBehaviour
     //{
 
     //}
-    void Acclerate(float addedspeed)
+    void Acclerate(float addedSpeed)
     {
-        currentSpeed += addedspeed;
-        
+        currentSpeed += addedSpeed;
+
         if (currentSpeed < 0)
         {
             currentSpeed = 0;
@@ -121,5 +151,10 @@ public class Playermovement : MonoBehaviour
         //Debug.Log($"max Speed:{maxSpeed}");
         //Debug.Log($"jump force:{jumpForce}");
     }
+
+    
+
+    
+
 
 }

@@ -15,21 +15,23 @@ public class Playermovement : MonoBehaviour
 
 
     [SerializeField] GameObject ScreenDirInput;
-    private Touch movementTouchInput;
-    private Vector2 touchStartPos, touchEndPos;
-    float swipeThreshold = 50f; // Adjust this value to set the minimum swipe distance
     [SerializeField] float currentSpeed;
     [SerializeField] float maxSpeed;
     [SerializeField] float Acceleration = 0;
     [SerializeField] float jumpForce;
     [SerializeField] float time;
 
-
+    private Touch movementTouchInput;
+    private Vector2 touchStartPos, touchEndPos;
+    private float swipeThreshold = 50f; // Adjust this value to set the minimum swipe distance
+    public float Left_Limit;
+    public float right_Limit;
 
     void Start()
     {
         Acclerate(Acceleration);
 
+       
     }
     private void Update()
     {
@@ -79,17 +81,22 @@ public class Playermovement : MonoBehaviour
     {
 
         Acclerate(Acceleration);
+       if (this.gameObject.transform.position.x>MapBoundry.internal_left;)
+        {
+
+        }
         transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
     }
     void RightMove()
     {
         Acclerate(Acceleration);
-        transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
+        transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
 
     }
 
     //void Jump()
     //{
+
 
     //}
     //void Slide()

@@ -51,56 +51,29 @@ public class Playermovement : MonoBehaviour
 
     void TouchInputControll()
     {
-        //*
-        //if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        //{
-        //    touchStartPos = Input.GetTouch(0).position;
-        //}
-
-        //   //return later for improvement
-        //    touchEndPos = Input.GetTouch(0).position;
-
-        //    if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && Input.touchCount > 0 )
-        //    {
-        //        if (touchEndPos.x < touchStartPos.x)
-        //        {
-        //            LeftMove();
-        //        }
-
-        //        if (touchEndPos.x > touchStartPos.x)
-        //        {
-        //            RightMove();
-        //        }
-        //    }
-
-        //*
-      
-        if (Input.touchCount > 0)
+        
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            Touch touch = Input.GetTouch(0);
+            touchStartPos = Input.GetTouch(0).position;
+        }
 
-            if (touch.phase == TouchPhase.Began)
+        //return later for improvement
+        touchEndPos = Input.GetTouch(0).position;
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && Input.touchCount > 0)
+        {
+            if (touchEndPos.x < touchStartPos.x)
             {
-                touchStartPos = touch.position;
+                LeftMove();
             }
-            else if (touch.phase == TouchPhase.Moved)
-            {
-                Vector2 touchEndPos = touch.position;
-                float swipeDistance = touchEndPos.x - touchStartPos.x;
 
-                if (Mathf.Abs(swipeDistance) > swipeThreshold)
-                {
-                    if (swipeDistance < 0)
-                    {
-                        LeftMove();
-                    }
-                    else
-                    {
-                        RightMove();
-                    }
-                }
+            if (touchEndPos.x > touchStartPos.x)
+            {
+                RightMove();
             }
         }
+
+       
     }
     void LeftMove()
     {
@@ -147,14 +120,7 @@ public class Playermovement : MonoBehaviour
             jumpForce = 0;
         }
 
-        //Debug.Log($"current Speed:{currentSpeed}");
-        //Debug.Log($"max Speed:{maxSpeed}");
-        //Debug.Log($"jump force:{jumpForce}");
+    
     }
-
-    
-
-    
-
 
 }

@@ -396,8 +396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a2061597b052a4590ef6ff27e179e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  internal_left: -4.3
-  internal_right: 4.86
 --- !u!114 &1525258230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,19 +622,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074425970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 356ab8007322e7c46b6896fce8da6d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScreenDirInput: {fileID: 0}
   currentSpeed: 20
   maxSpeed: 20
   Acceleration: 3
   jumpForce: 0
   time: 0
-  Left_Limit: 0
-  right_Limit: 0
 --- !u!1001 &8288708104122818333
 PrefabInstance:
   m_ObjectHideFlags: 0

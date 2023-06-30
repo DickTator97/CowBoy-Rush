@@ -8,8 +8,10 @@ public class Player_Movement : MonoBehaviour
     //2. move player sideways with touch input
     //3. make player jump while dragging finger upwards
     //4. make player slide while dragging finger downwards
+
     //score
     //life 
+
     //animations (if existing)
 
     MapBoundary map_boundary;
@@ -18,8 +20,8 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] float Acceleration;
     [SerializeField] float jumpForce;
     [SerializeField] float time;
-    //private Touch movementTouchInput;
     private Vector2 touchStartPos, touchEndPos;
+
     // private float swipeThreshold = 50f; // Adjust this value to set the minimum swipe distance
 
     //public float Left_Limit;
@@ -58,18 +60,28 @@ public class Player_Movement : MonoBehaviour
         }
 
         //return later for improvement
-        touchEndPos = Input.GetTouch(0).position;
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && Input.touchCount > 0)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
+            touchEndPos = Input.GetTouch(0).position;
             if (touchEndPos.x < touchStartPos.x)
             {
-                LeftMove();
+                if (this.gameObject.transform.position.x > map_boundary.internal_left)
+                {
+                    LeftMove();
+
+                }
+
             }
 
             if (touchEndPos.x > touchStartPos.x)
             {
-                RightMove();
+                if (this.gameObject.transform.position.x < map_boundary.internal_right)
+                {
+                    RightMove();
+
+                }
+
             }
         }
 
@@ -79,22 +91,19 @@ public class Player_Movement : MonoBehaviour
     {
         //wip
         Accelerate(Acceleration);
-        if (this.gameObject.transform.position.x < map_boundary.internal_left)
-        {
 
-            transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
-        }
+
+        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
+
     }
     void RightMove()
     {
         //wip
         Accelerate(Acceleration);
-        if (this.gameObject.transform.position.x > map_boundary.internal_right)
-        {
 
-            transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
-            transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
-        }
+
+        transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
+
 
     }
 

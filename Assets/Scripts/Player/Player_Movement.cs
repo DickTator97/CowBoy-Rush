@@ -27,8 +27,8 @@ public class Player_Movement : MonoBehaviour
     }
     private void Update()
     {
-        PlayerMovement();
         TouchInputControl();
+
     }
 
     #region fix
@@ -50,6 +50,7 @@ public class Player_Movement : MonoBehaviour
     void PlayerMovement()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
+        TouchInputControl();
     }
 
 
@@ -63,10 +64,11 @@ public class Player_Movement : MonoBehaviour
     #region TouchInput
     void TouchInputControl()
     {
-
+        PlayerMovement();
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             touchStartPos = Input.GetTouch(0).position;
+            Debug.Log("Touch Input Detected");
         }
 
         //return later for improvement

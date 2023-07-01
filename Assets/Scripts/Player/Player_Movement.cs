@@ -17,52 +17,44 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] float Acceleration;
     [SerializeField] float jumpForce;
     [SerializeField] float time;
+    //[SerializeField] GameObject go;
     private Vector2 touchStartPos, touchEndPos;
 
     void Start()
     {
-        Accelerate(Acceleration);       
+        Accelerate(Acceleration);
+
     }
     private void Update()
     {
-        MovePlayer();  
-    }
-    void MovePlayer()
-    {
-
-        //1 Forward Movement
-        //Add later Calculations of acceleration and max speed
-        //CheckForValidLogic();
-        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
-       
+        PlayerMovement();
         TouchInputControl();
-        KeyBoardControl();
-        //2. left right movement
-        //3. jump
-        //4. slide
     }
 
-    // for testing purpose
-    void KeyBoardControl()
+    #region fix
+    //  void MovePlayer()
+    //{
+
+    //    //1 Forward Movement
+    //    //Add later Calculations of acceleration and max speed
+    //    //CheckForValidLogic();
+    //    transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
+    //  //TouchInputControl();
+    //    KeyBoardControl();
+
+    //    //2. left right movement
+    //    //3. jump
+    //    //4. slide
+    //}
+
+    void PlayerMovement()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            if (this.gameObject.transform.position.x > map_boundary.internal_left)
-            {
-                LeftMove();
-
-            }
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            if (this.gameObject.transform.position.x < map_boundary.internal_right)
-            {
-                RightMove();
-
-            }
-        }
-       // Debug.Log("KeyBoard Input is active:");
+        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
     }
+
+
+
+    #region TouchInput
     void TouchInputControl()
     {
 
@@ -72,41 +64,55 @@ public class Player_Movement : MonoBehaviour
         }
 
         //return later for improvement
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
             touchEndPos = Input.GetTouch(0).position;
             if (touchEndPos.x < touchStartPos.x)
             {
-                if (this.gameObject.transform.position.x > map_boundary.internal_left)
-                {
-                    LeftMove();
 
-                }
+                LeftMove();
+
+
             }
             if (touchEndPos.x > touchStartPos.x)
             {
-                if (this.gameObject.transform.position.x < map_boundary.internal_right)
-                {
-                    RightMove();
 
-                }
+                RightMove();
+
+
             }
         }
-      //  Debug.Log("Touch Input is active:");
+        #endregion
+        //  Debug.Log("Touch Input is active:");
     }
+
+
+    #region SideWays Movement
     void LeftMove()
     {
         //wip
         Accelerate(Acceleration);
-        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
+        if (this.gameObject.transform.position.x > map_boundary.internal_left)
+        {
+
+            transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
+        }
 
     }
     void RightMove()
     {
         //wip
         Accelerate(Acceleration);
-        transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
+
+        if (this.gameObject.transform.position.x < map_boundary.internal_right)
+        {
+
+            transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
+        }
+
     }
+    #endregion
+    #endregion
 
     //void Jump()
     //{
@@ -116,6 +122,7 @@ public class Player_Movement : MonoBehaviour
     //{
 
     //}
+    #region Acceleration
     void Accelerate(float addedSpeed)
     {
         currentSpeed += addedSpeed;
@@ -139,4 +146,5 @@ public class Player_Movement : MonoBehaviour
             jumpForce = 0;
         }
     }
+    #endregion
 }

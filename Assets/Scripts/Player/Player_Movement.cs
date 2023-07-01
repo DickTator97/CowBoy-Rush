@@ -10,91 +10,70 @@ public class Player_Movement : MonoBehaviour
     //score
     //life 
     //animations (if existing)
-
     MapBoundary map_boundary;
     [SerializeField] float currentSpeed;
     [SerializeField] float maxSpeed;
     [SerializeField] float Acceleration;
     [SerializeField] float jumpForce;
     [SerializeField] float time;
-    //[SerializeField] GameObject go;
     private Vector2 touchStartPos, touchEndPos;
-
+   // private float leftMoveLimit, rightMoveLimit;
     void Start()
     {
         Accelerate(Acceleration);
-
     }
     private void Update()
     {
-        TouchInputControl();
+        //leftMoveLimit = map_boundary.internal_left;
+       // rightMoveLimit = map_boundary.internal_right;
+        PlayerMovement();
 
     }
-
     #region fix
     //  void MovePlayer()
     //{
-
-    //    //1 Forward Movement
-    //    //Add later Calculations of acceleration and max speed
-    //    //CheckForValidLogic();
-    //    transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
-    //  //TouchInputControl();
-    //    KeyBoardControl();
-
-    //    //2. left right movement
-    //    //3. jump
-    //    //4. slide
+    //1 Forward Movement
+    //Add later Calculations of acceleration and max speed
+    //transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
+    //TouchInputControl();
+    // KeyBoardControl();
+    //2. left right movement
+    //3. jump
+    //4. slide
     //}
 
     void PlayerMovement()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
+        transform.Translate(Vector3.forward * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
         TouchInputControl();
     }
-
-
-    #region MouseInput
-
-    void OnMouseDown()
-    {
-
-    }
-    #endregion
+  
     #region TouchInput
     void TouchInputControl()
     {
-        PlayerMovement();
+        
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             touchStartPos = Input.GetTouch(0).position;
-            Debug.Log("Touch Input Detected");
+          
         }
-
         //return later for improvement
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
             touchEndPos = Input.GetTouch(0).position;
             if (touchEndPos.x < touchStartPos.x)
             {
-
                 LeftMove();
-
-
             }
             if (touchEndPos.x > touchStartPos.x)
             {
 
                 RightMove();
-
-
             }
         }
         #endregion
-        //  Debug.Log("Touch Input is active:");
+        //Debug.Log("Touch Input is active:");
     }
-
-
     #region SideWays Movement
     void LeftMove()
     {
@@ -102,26 +81,20 @@ public class Player_Movement : MonoBehaviour
         Accelerate(Acceleration);
         if (this.gameObject.transform.position.x > map_boundary.internal_left)
         {
-
             transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
         }
-
     }
     void RightMove()
     {
         //wip
         Accelerate(Acceleration);
-
         if (this.gameObject.transform.position.x < map_boundary.internal_right)
         {
-
             transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
         }
-
     }
     #endregion
     #endregion
-
     //void Jump()
     //{
 
@@ -134,7 +107,6 @@ public class Player_Movement : MonoBehaviour
     void Accelerate(float addedSpeed)
     {
         currentSpeed += addedSpeed;
-
         if (currentSpeed < 0)
         {
             currentSpeed = 0;
@@ -142,7 +114,6 @@ public class Player_Movement : MonoBehaviour
         if (currentSpeed >= maxSpeed)
         {
             maxSpeed = currentSpeed;
-
         }
         if (maxSpeed < 1)
         {

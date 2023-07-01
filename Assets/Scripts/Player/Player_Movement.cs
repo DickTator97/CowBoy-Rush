@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class Player_Movement : MonoBehaviour
 {
     //movement
@@ -8,10 +7,8 @@ public class Player_Movement : MonoBehaviour
     //2. move player sideways with touch input
     //3. make player jump while dragging finger upwards
     //4. make player slide while dragging finger downwards
-
     //score
     //life 
-
     //animations (if existing)
 
     MapBoundary map_boundary;
@@ -22,21 +19,13 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] float time;
     private Vector2 touchStartPos, touchEndPos;
 
-    // private float swipeThreshold = 50f; // Adjust this value to set the minimum swipe distance
-
-    //public float Left_Limit;
-    //public float right_Limit;
-
     void Start()
     {
-        Accelerate(Acceleration);
-        //Mapboundary mb = gameObject.GetComponent<Mapboundary>();
-
-
+        Accelerate(Acceleration);       
     }
     private void Update()
     {
-        MovePlayer();
+        MovePlayer();  
     }
     void MovePlayer()
     {
@@ -45,12 +34,35 @@ public class Player_Movement : MonoBehaviour
         //Add later Calculations of acceleration and max speed
         //CheckForValidLogic();
         transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
+       
         TouchInputControl();
+        KeyBoardControl();
         //2. left right movement
         //3. jump
         //4. slide
     }
 
+    // for testing purpose
+    void KeyBoardControl()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            if (this.gameObject.transform.position.x > map_boundary.internal_left)
+            {
+                LeftMove();
+
+            }
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            if (this.gameObject.transform.position.x < map_boundary.internal_right)
+            {
+                RightMove();
+
+            }
+        }
+       // Debug.Log("KeyBoard Input is active:");
+    }
     void TouchInputControl()
     {
 
@@ -60,7 +72,6 @@ public class Player_Movement : MonoBehaviour
         }
 
         //return later for improvement
-
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
             touchEndPos = Input.GetTouch(0).position;
@@ -71,9 +82,7 @@ public class Player_Movement : MonoBehaviour
                     LeftMove();
 
                 }
-
             }
-
             if (touchEndPos.x > touchStartPos.x)
             {
                 if (this.gameObject.transform.position.x < map_boundary.internal_right)
@@ -81,18 +90,14 @@ public class Player_Movement : MonoBehaviour
                     RightMove();
 
                 }
-
             }
         }
-
-
+      //  Debug.Log("Touch Input is active:");
     }
     void LeftMove()
     {
         //wip
         Accelerate(Acceleration);
-
-
         transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
 
     }
@@ -100,11 +105,7 @@ public class Player_Movement : MonoBehaviour
     {
         //wip
         Accelerate(Acceleration);
-
-
         transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
-
-
     }
 
     //void Jump()

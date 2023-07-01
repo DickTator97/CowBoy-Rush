@@ -53,7 +53,13 @@ public class Player_Movement : MonoBehaviour
     }
 
 
+    #region MouseInput
 
+    void OnMouseDown()
+    {
+
+    }
+    #endregion
     #region TouchInput
     void TouchInputControl()
     {

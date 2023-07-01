@@ -17,7 +17,8 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float time;
     private Vector2 touchStartPos, touchEndPos;
-   // private float leftMoveLimit, rightMoveLimit;
+    // [SerializeField] GameObject go;
+    // private float leftMoveLimit, rightMoveLimit;
     void Start()
     {
         Accelerate(Acceleration);
@@ -25,7 +26,7 @@ public class Player_Movement : MonoBehaviour
     private void Update()
     {
         //leftMoveLimit = map_boundary.internal_left;
-       // rightMoveLimit = map_boundary.internal_right;
+        // rightMoveLimit = map_boundary.internal_right;
         PlayerMovement();
 
     }
@@ -47,51 +48,53 @@ public class Player_Movement : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
         TouchInputControl();
     }
-  
+
     #region TouchInput
     void TouchInputControl()
     {
-        
+
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             touchStartPos = Input.GetTouch(0).position;
-          
         }
-        //return later for improvement
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+
+        if (touchEndPos.x < touchStartPos.x)
         {
-            touchEndPos = Input.GetTouch(0).position;
-            if (touchEndPos.x < touchStartPos.x)
-            {
-                LeftMove();
-            }
-            if (touchEndPos.x > touchStartPos.x)
+            if (this.gameObject.transform.position.x < map_boundary.internal_right)
             {
 
                 RightMove();
+            }
+
+        }
+
+        if (touchEndPos.x > touchStartPos.x)
+        {
+            if (this.gameObject.transform.position.x > map_boundary.internal_left)
+            {
+
+                LeftMove();
             }
         }
         #endregion
         //Debug.Log("Touch Input is active:");
     }
     #region SideWays Movement
+
+
+
     void LeftMove()
     {
         //wip
         Accelerate(Acceleration);
-        if (this.gameObject.transform.position.x > map_boundary.internal_left)
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
-        }
+
+        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
     }
     void RightMove()
     {
         //wip
         Accelerate(Acceleration);
-        if (this.gameObject.transform.position.x < map_boundary.internal_right)
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
-        }
+        transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
     }
     #endregion
     #endregion

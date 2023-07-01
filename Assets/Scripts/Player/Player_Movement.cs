@@ -10,7 +10,7 @@ public class Player_Movement : MonoBehaviour
     //score
     //life 
     //animations (if existing)
-    MapBoundary map_boundary;
+    Map_Boundary map_boundary;
     [SerializeField] float currentSpeed;
     [SerializeField] float maxSpeed;
     [SerializeField] float Acceleration;

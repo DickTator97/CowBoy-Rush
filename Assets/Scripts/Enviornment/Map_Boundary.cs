@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapBoundary : MonoBehaviour
+public class Map_Boundary : MonoBehaviour
 {
 
     [SerializeField] static float left_bound;

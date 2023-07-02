@@ -13,10 +13,10 @@ public class Map_Boundary : MonoBehaviour
 
     private void Start()
     {
-        AreBordersValid();
     }
     void Update()
     {
+        AreBordersValid();
         internal_left = left_bound;
         internal_right = right_bound;
         
@@ -24,13 +24,13 @@ public class Map_Boundary : MonoBehaviour
   
     void AreBordersValid()
     {
-        if (internal_left>-1)
+        if (internal_left>-11)
         {
-            internal_left =-1;
+            internal_left =-11;
         }
-        if (internal_right<1)
+        if (internal_right<11)
         {
-            internal_right = 1;
+            internal_right = 11;
         }
     }
 }

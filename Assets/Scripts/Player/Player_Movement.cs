@@ -71,7 +71,7 @@ public class Player_Movement : MonoBehaviour
     }
     void RightMove()
     {
-        if (this.gameObject.transform.position.x < map_boundary.internal_right)
+        if (transform.position.x < map_boundary.internal_right)
         {
             transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
 
@@ -79,7 +79,7 @@ public class Player_Movement : MonoBehaviour
     }
     void LeftMove()
     {
-        if (this.gameObject.transform.position.x > map_boundary.internal_left)
+        if (transform.position.x > map_boundary.internal_left)
         {
             transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
 

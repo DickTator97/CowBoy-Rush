@@ -227,6 +227,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7185442349280543512, guid: cbdcf9e1e97b9ca4ea64aa1cf0022474, type: 3}
   m_PrefabInstance: {fileID: 1488521742296842821}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &882517107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5518010228576802379, guid: b16f849d3949e0b4ba26706a8f78a039, type: 3}
+  m_PrefabInstance: {fileID: 5661031433442932570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &885280042
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1525258228}
   - component: {fileID: 1525258230}
+  - component: {fileID: 1525258231}
   m_Layer: 0
   m_Name: GameManeger
   m_TagString: Untagged
@@ -433,6 +439,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CemeraFollowObject: {fileID: 0}
   cameraOffset: 5
+--- !u!114 &1525258231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525258227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4a2061597b052a4590ef6ff27e179e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  internal_left: -11.59
+  internal_right: 11.71
 --- !u!1001 &1647725705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -623,6 +643,7 @@ MonoBehaviour:
   Acceleration: 0
   jumpForce: 0
   time: 0
+  Player: {fileID: 0}
 --- !u!1 &1805791564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,6 +2377,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 96331969509041596, guid: b16f849d3949e0b4ba26706a8f78a039, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 882517107}
     - target: {fileID: 1008027669171543792, guid: b16f849d3949e0b4ba26706a8f78a039, type: 3}
       propertyPath: m_RootOrder
       value: 1

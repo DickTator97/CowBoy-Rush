@@ -16,6 +16,7 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] float Acceleration;
     [SerializeField] float jumpForce;
     [SerializeField] float time;
+    [SerializeField] GameObject Player;
     private Vector2 touchStartPos, touchEndPos;
     private Touch touch;
     // private float leftMoveLimit, rightMoveLimit;
@@ -52,7 +53,7 @@ public class Player_Movement : MonoBehaviour
     #region TouchInput
     void TouchInputControl()
     {
-      
+
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             touchStartPos = Input.GetTouch(0).position;
@@ -67,12 +68,19 @@ public class Player_Movement : MonoBehaviour
             touchEndPos = Input.GetTouch(0).position;
             if (touchEndPos.x < touchStartPos.x)
             {
-                LeftMove();
+                if (Player.transform.position.x > map_boundary.internal_left)
+                {
+                    LeftMove();
+
+                }
             }
             if (touchEndPos.x > touchStartPos.x)
             {
+                if (Player.transform.position.x < map_boundary.internal_right)
+                {
+                    RightMove();
 
-                RightMove();
+                }
             }
         }
         #endregion
@@ -83,19 +91,13 @@ public class Player_Movement : MonoBehaviour
     {
         //wip
         Accelerate(Acceleration);
-        if (this.gameObject.transform.position.x > map_boundary.internal_left)
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
-        }
+        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
     }
     void RightMove()
     {
         //wip
         Accelerate(Acceleration);
-        if (this.gameObject.transform.position.x < map_boundary.internal_right)
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
-        }
+        transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
     }
     #endregion
     #endregion

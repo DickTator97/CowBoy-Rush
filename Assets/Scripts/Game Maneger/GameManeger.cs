@@ -4,7 +4,7 @@ public class GameManeger : MonoBehaviour
 {
     #region UI 
     #region Main Menu
-
+    
     public void OnMouseDown()
     {
         //1. load scene
@@ -17,12 +17,24 @@ public class GameManeger : MonoBehaviour
 
     #region Camera Follow
     
-    [SerializeField] GameObject CemeraFollowObject;
+    [SerializeField] GameObject Camera;
+    [SerializeField] GameObject Target;
     [SerializeField] float cameraOffset;
+    private float cameraCurrentPos;
     #endregion
     private void Update()
     {
-
+        CameraFollow();
     }
 
+    void CameraFollow()
+    {
+        
+        cameraCurrentPos=Camera.transform.position.z+Target.transform.position.z-cameraOffset;
+
+        if (cameraCurrentPos<5)
+        {
+            cameraCurrentPos = 5;
+        }
+    }
 }

@@ -21,7 +21,7 @@ public class Player_Movement : MonoBehaviour
     private Touch touch;
 
 
-   
+
     void Start()
     {
         Accelerate(Acceleration);
@@ -70,12 +70,20 @@ public class Player_Movement : MonoBehaviour
         }
     }
     void RightMove()
-    {     
-        transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
+    {
+        if (this.gameObject.transform.position.x < map_boundary.internal_right)
+        {
+            transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
+
+        }
     }
     void LeftMove()
     {
-        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
+        if (this.gameObject.transform.position.x > map_boundary.internal_left)
+        {
+            transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
+
+        }
     }
     #endregion
     #endregion

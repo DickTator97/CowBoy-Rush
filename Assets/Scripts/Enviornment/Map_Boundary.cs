@@ -3,13 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapBoundary : MonoBehaviour
+public class Map_Boundary : MonoBehaviour
 {
 
     [SerializeField] static float left_bound;
     [SerializeField] static float right_bound;
     public float internal_left;
     public float internal_right;
+
+    private void Start()
+    {
+      
+    }
     void Update()
     {
         internal_left = left_bound;
@@ -17,4 +22,8 @@ public class MapBoundary : MonoBehaviour
         
     }
   
+    void IsValidBorders()
+    {
+        
+    }
 }

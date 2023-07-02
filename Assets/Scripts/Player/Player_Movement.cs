@@ -62,14 +62,17 @@ public class Player_Movement : MonoBehaviour
         {
             touchEndPos = Input.GetTouch(0).position;
 
-            
-            if (touchEndPos.x < touchStartPos.x)
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
             {
-                LeftMove();
-            }
-            if (touchEndPos.x > touchStartPos.x)
-            {
-                RightMove();
+
+                if (touchEndPos.x < touchStartPos.x)
+                {
+                    LeftMove();
+                }
+                if (touchEndPos.x > touchStartPos.x)
+                {
+                    RightMove();
+                }
             }
         }
 

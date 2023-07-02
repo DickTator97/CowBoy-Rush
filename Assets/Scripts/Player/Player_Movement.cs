@@ -28,7 +28,7 @@ public class Player_Movement : MonoBehaviour
         //leftMoveLimit = map_boundary.internal_left;
         // rightMoveLimit = map_boundary.internal_right;
         PlayerMovement();
-
+        LeftRightSwipe();
     }
     #region fix
     //  void MovePlayer()
@@ -46,7 +46,7 @@ public class Player_Movement : MonoBehaviour
     void PlayerMovement()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
-        LeftRightSwipe();
+        
     }
 
     #region TouchInput
@@ -62,8 +62,7 @@ public class Player_Movement : MonoBehaviour
         {
             touchEndPos = Input.GetTouch(0).position;
 
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
-            {
+            
 
                 if (touchEndPos.x < touchStartPos.x)
                 {
@@ -73,7 +72,7 @@ public class Player_Movement : MonoBehaviour
                 {
                     RightMove();
                 }
-            }
+            
         }
 
 

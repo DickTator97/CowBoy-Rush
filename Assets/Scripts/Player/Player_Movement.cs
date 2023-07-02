@@ -8,57 +8,34 @@ public class Player_Movement : MonoBehaviour
     //3. make player jump while dragging finger upwards
     //4. make player slide while dragging finger downwards
     //score
-    //life 
-    //animations (if existing)
+    //life
+    //animations(if existing)
     Map_Boundary map_boundary;
     [SerializeField] float currentSpeed;
     [SerializeField] float maxSpeed;
     [SerializeField] float Acceleration;
     [SerializeField] float jumpForce;
     [SerializeField] float time;
-    public Transform Player;
+    //public Transform Player;
     private Vector2 touchStartPos, touchEndPos;
     private Touch touch;
 
 
-    // private float leftMoveLimit, rightMoveLimit;
+   
     void Start()
     {
         Accelerate(Acceleration);
     }
     private void Update()
     {
-        //leftMoveLimit = map_boundary.internal_left;
-        // rightMoveLimit = map_boundary.internal_right;
-        //PlayerMovement();
-        //LeftRightSwipe();
-        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (this.gameObject.transform.position.x > map_boundary.internal_left)
-            {
-
-                transform.Translate(Vector3.left * Time.deltaTime * currentSpeed, Space.World);
-            }
-
-
-        }
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (this.gameObject.transform.position.x < map_boundary.internal_right)
-            {
-
-                transform.Translate(Vector3.right * Time.deltaTime * currentSpeed, Space.World);
-            }
-
-        }
+        PlayerMovement();
+        LeftRightSwipe();
 
     }
     #region fix
-    //2. left right movement
+    //2.left right movement
     //3. jump
     //4. slide
-    //}
     #region Movement
     void PlayerMovement()
     {
@@ -93,20 +70,12 @@ public class Player_Movement : MonoBehaviour
         }
     }
     void RightMove()
-    {
-        if (gameObject.transform.position.x > map_boundary.internal_left)
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
-
-        }
+    {     
+        transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
     }
     void LeftMove()
     {
-        if (gameObject.transform.position.x < map_boundary.internal_right)
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
-
-        }
+        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
     }
     #endregion
     #endregion
@@ -146,25 +115,23 @@ public class Player_Movement : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (this.gameObject.transform.position.x > map_boundary.internal_left)
-            {
 
-                transform.Translate(Vector3.left * Time.deltaTime * currentSpeed, Space.World);
-            }
+
+            transform.Translate(Vector3.left * Time.deltaTime * currentSpeed, Space.World);
+
 
 
         }
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (this.gameObject.transform.position.x < map_boundary.internal_right)
-            {
 
-                transform.Translate(Vector3.right * Time.deltaTime * currentSpeed, Space.World);
-            }
+
+            transform.Translate(Vector3.right * Time.deltaTime * currentSpeed, Space.World);
 
         }
     }
 
 
+
+    #endregion
 }
-#endregion

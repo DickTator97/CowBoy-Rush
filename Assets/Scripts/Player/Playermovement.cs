@@ -13,7 +13,6 @@ public class Playermovement : MonoBehaviour
 
     //score
     //life 
-<<<<<<< Updated upstream:Assets/Scripts/Player/Playermovement.cs
     //animations (if exisiting)
 
   
@@ -21,16 +20,11 @@ public class Playermovement : MonoBehaviour
 
     private Touch movementTouchInput;
     private Vector2 touchStartPos, touchEndPos;
-=======
-    //animations (if existing)
-    Map_Boundary map_boundary;
->>>>>>> Stashed changes:Assets/Scripts/Player/Player_Movement.cs
     [SerializeField] float currentSpeed;
     [SerializeField] float maxSpeed;
     [SerializeField] float Acceleration;
     [SerializeField] float jumpForce;
     [SerializeField] float time;
-<<<<<<< Updated upstream:Assets/Scripts/Player/Playermovement.cs
 
 
 
@@ -59,56 +53,12 @@ public class Playermovement : MonoBehaviour
 
     void TouchInputControll()
     {
-=======
-    private Vector2 touchStartPos, touchEndPos;
-   // private float leftMoveLimit, rightMoveLimit;
-    void Start()
-    {
-        Accelerate(Acceleration);
-    }
-    private void Update()
-    {
-        //leftMoveLimit = map_boundary.internal_left;
-       // rightMoveLimit = map_boundary.internal_right;
-        PlayerMovement();
-
-    }
-    #region fix
-    //  void MovePlayer()
-    //{
-    //1 Forward Movement
-    //Add later Calculations of acceleration and max speed
-    //transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
-    //TouchInputControl();
-    // KeyBoardControl();
-    //2. left right movement
-    //3. jump
-    //4. slide
-    //}
-
-    void PlayerMovement()
-    {
-        transform.Translate(Vector3.forward * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
-        TouchInputControl();
-    }
-  
-    #region TouchInput
-    void TouchInputControl()
-    {
-        
->>>>>>> Stashed changes:Assets/Scripts/Player/Player_Movement.cs
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             touchStartPos = Input.GetTouch(0).position;
-          
         }
-<<<<<<< Updated upstream:Assets/Scripts/Player/Playermovement.cs
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-=======
-        //return later for improvement
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
->>>>>>> Stashed changes:Assets/Scripts/Player/Player_Movement.cs
         {
             touchEndPos = Input.GetTouch(0).position;
             if (touchEndPos.x < touchStartPos.x)
@@ -121,7 +71,6 @@ public class Playermovement : MonoBehaviour
                 RightMove();
             }
         }
-<<<<<<< Updated upstream:Assets/Scripts/Player/Playermovement.cs
     }
     void LeftMove()
     {
@@ -136,32 +85,6 @@ public class Playermovement : MonoBehaviour
 
     }
 
-=======
-        #endregion
-        //Debug.Log("Touch Input is active:");
-    }
-    #region SideWays Movement
-    void LeftMove()
-    {
-        //wip
-        Accelerate(Acceleration);
-        if (this.gameObject.transform.position.x > map_boundary.internal_left)
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
-        }
-    }
-    void RightMove()
-    {
-        //wip
-        Accelerate(Acceleration);
-        if (this.gameObject.transform.position.x < map_boundary.internal_right)
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
-        }
-    }
-    #endregion
-    #endregion
->>>>>>> Stashed changes:Assets/Scripts/Player/Player_Movement.cs
     //void Jump()
     //{
 
@@ -172,12 +95,8 @@ public class Playermovement : MonoBehaviour
     //}
     void Acclerate(float addedspeed)
     {
-<<<<<<< Updated upstream:Assets/Scripts/Player/Playermovement.cs
         currentSpeed += addedspeed;
         
-=======
-        currentSpeed += addedSpeed;
->>>>>>> Stashed changes:Assets/Scripts/Player/Player_Movement.cs
         if (currentSpeed < 0)
         {
             currentSpeed = 0;
@@ -186,6 +105,7 @@ public class Playermovement : MonoBehaviour
         if (currentSpeed >= maxSpeed)
         {
             maxSpeed = currentSpeed;
+
         }
         if (maxSpeed < 1)
         {

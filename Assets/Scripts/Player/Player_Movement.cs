@@ -18,6 +18,8 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] float time;
     private Vector2 touchStartPos, touchEndPos;
     private Touch touch;
+   
+
     // private float leftMoveLimit, rightMoveLimit;
     void Start()
     {
@@ -27,6 +29,7 @@ public class Player_Movement : MonoBehaviour
     {
         //leftMoveLimit = map_boundary.internal_left;
         // rightMoveLimit = map_boundary.internal_right;
+        
         PlayerMovement();
         LeftRightSwipe();
     }
@@ -45,7 +48,7 @@ public class Player_Movement : MonoBehaviour
 
     void PlayerMovement()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
+        transform.Translate(Vector3.forward * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
         
     }
 
@@ -81,11 +84,11 @@ public class Player_Movement : MonoBehaviour
     void RightMove()
     {
 
-        transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
+        transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
     }
     void LeftMove()
     {
-        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
+        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
 
     }
     #endregion

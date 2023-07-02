@@ -22,8 +22,5 @@ public class Map_Boundary : MonoBehaviour
         
     }
   
-    void IsValidBorders()
-    {
-        
-    }
+    
 }

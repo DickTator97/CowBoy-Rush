@@ -46,56 +46,45 @@ public class Player_Movement : MonoBehaviour
     void PlayerMovement()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
-        TouchInputControl();
+        LeftRightSwipe();
     }
 
     #region TouchInput
-    void TouchInputControl()
+
+    void LeftRightSwipe()
     {
-      
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             touchStartPos = Input.GetTouch(0).position;
 
         }
-        ////return later for improvement
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
-            transform.position = new Vector3(transform.position.x + touch.deltaPosition.x * currentSpeed,
-                transform.position.y, transform.position.z);
-
             touchEndPos = Input.GetTouch(0).position;
+
+            
             if (touchEndPos.x < touchStartPos.x)
             {
                 LeftMove();
             }
             if (touchEndPos.x > touchStartPos.x)
             {
-
                 RightMove();
             }
         }
-        #endregion
-        //Debug.Log("Touch Input is active:");
+
+
     }
-    #region SideWays Movement
-    void LeftMove()
-    {
-        //wip
-        Accelerate(Acceleration);
-        if (this.gameObject.transform.position.x > map_boundary.internal_left)
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
-        }
-    }
+
     void RightMove()
     {
-        //wip
-        Accelerate(Acceleration);
-        if (this.gameObject.transform.position.x < map_boundary.internal_right)
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
-        }
+
+        transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
+    }
+    void LeftMove()
+    {
+        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
+
     }
     #endregion
     #endregion

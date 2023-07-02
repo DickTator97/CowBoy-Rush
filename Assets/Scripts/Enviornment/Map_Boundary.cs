@@ -13,7 +13,7 @@ public class Map_Boundary : MonoBehaviour
 
     private void Start()
     {
-        AreBordersValid();
+      
     }
     void Update()
     {
@@ -22,15 +22,5 @@ public class Map_Boundary : MonoBehaviour
         
     }
   
-    void AreBordersValid()
-    {
-        if (internal_left>-1)
-        {
-            internal_left =-1;
-        }
-        if (internal_right<1)
-        {
-            internal_right = 1;
-        }
-    }
+    
 }

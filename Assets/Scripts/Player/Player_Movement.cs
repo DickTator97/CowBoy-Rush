@@ -16,10 +16,9 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] float Acceleration;
     [SerializeField] float jumpForce;
     [SerializeField] float time;
-    public Transform Player;
     private Vector2 touchStartPos, touchEndPos;
     private Touch touch;
-
+   
 
     // private float leftMoveLimit, rightMoveLimit;
     void Start()
@@ -30,40 +29,27 @@ public class Player_Movement : MonoBehaviour
     {
         //leftMoveLimit = map_boundary.internal_left;
         // rightMoveLimit = map_boundary.internal_right;
-        //PlayerMovement();
-        //LeftRightSwipe();
-        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (this.gameObject.transform.position.x > map_boundary.internal_left)
-            {
-
-                transform.Translate(Vector3.left * Time.deltaTime * currentSpeed, Space.World);
-            }
-
-
-        }
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (this.gameObject.transform.position.x < map_boundary.internal_right)
-            {
-
-                transform.Translate(Vector3.right * Time.deltaTime * currentSpeed, Space.World);
-            }
-
-        }
-
+        
+        PlayerMovement();
+        LeftRightSwipe();
     }
     #region fix
+    //  void MovePlayer()
+    //{
+    //1 Forward Movement
+    //Add later Calculations of acceleration and max speed
+    //transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
+    //TouchInputControl();
+    // KeyBoardControl();
     //2. left right movement
     //3. jump
     //4. slide
     //}
-    #region Movement
+
     void PlayerMovement()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
-
+        
     }
 
     #region TouchInput
@@ -79,34 +65,31 @@ public class Player_Movement : MonoBehaviour
         {
             touchEndPos = Input.GetTouch(0).position;
 
+            
 
-
-            if (touchEndPos.x < touchStartPos.x)
-            {
-                LeftMove();
-            }
-            if (touchEndPos.x > touchStartPos.x)
-            {
-                RightMove();
-            }
-
+                if (touchEndPos.x < touchStartPos.x)
+                {
+                    LeftMove();
+                }
+                if (touchEndPos.x > touchStartPos.x)
+                {
+                    RightMove();
+                }
+            
         }
+
+
     }
+
     void RightMove()
     {
-        if (gameObject.transform.position.x > map_boundary.internal_left)
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
 
-        }
+        transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
     }
     void LeftMove()
     {
-        if (gameObject.transform.position.x < map_boundary.internal_right)
-        {
-            transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
+        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
 
-        }
     }
     #endregion
     #endregion
@@ -134,37 +117,11 @@ public class Player_Movement : MonoBehaviour
         {
             maxSpeed = 1;
         }
+
         if (jumpForce < 0)
         {
             jumpForce = 0;
         }
     }
     #endregion
-
-    void KeyBoardMovement()
-    {
-        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (this.gameObject.transform.position.x > map_boundary.internal_left)
-            {
-
-                transform.Translate(Vector3.left * Time.deltaTime * currentSpeed, Space.World);
-            }
-
-
-        }
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (this.gameObject.transform.position.x < map_boundary.internal_right)
-            {
-
-                transform.Translate(Vector3.right * Time.deltaTime * currentSpeed, Space.World);
-            }
-
-        }
-    }
-
-
 }
-#endregion

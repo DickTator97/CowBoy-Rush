@@ -18,23 +18,25 @@ public class GameManeger : MonoBehaviour
     #region Camera Follow
     
     [SerializeField] GameObject Camera;
-    [SerializeField] GameObject Target;
-    [SerializeField] float cameraOffset;
+    [SerializeField] Transform Target;
+    [SerializeField] Vector3 cameraOffset=new Vector3(0,0,0);
+    [SerializeField] float smoothTime;
+    private float AxisX, AxisY, AxisZ;
     private float cameraCurrentPos;
     #endregion
-    private void Update()
+    
+    private void LateUpdate()
     {
-        CameraFollow();
+        //CameraFollow();
     }
 
-    void CameraFollow()
-    {
-        
-        cameraCurrentPos=Camera.transform.position.z+Target.transform.position.z-cameraOffset;
-
-        if (cameraCurrentPos<5)
-        {
-            cameraCurrentPos = 5;
-        }
-    }
+    //void CameraFollow()
+    //{
+    //    transform.position = Vector3.SmoothDamp
+    //        (
+    //         //transform.position,Target.position+cameraOffset 
+    //        // ref Player_Movement.
+    //        );
+      
+    //}
 }

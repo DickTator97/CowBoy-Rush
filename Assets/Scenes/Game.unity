@@ -123,6 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &609867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1855,10 +1856,15 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!136 &40352258
 CapsuleCollider:
+=======
+--- !u!1 &160057781
+GameObject:
+>>>>>>> parent of 8729486 (Made Player To Walk Inside Map Borders)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 40352257}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -4711,10 +4717,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!136 &103746605
 CapsuleCollider:
+=======
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 160057786}
+  - component: {fileID: 160057785}
+  - component: {fileID: 160057784}
+  - component: {fileID: 160057783}
+  - component: {fileID: 160057782}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &160057782
+MonoBehaviour:
+>>>>>>> parent of 8729486 (Made Player To Walk Inside Map Borders)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 103746603}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -12428,16 +12453,36 @@ GameObject:
   m_PrefabInstance: {fileID: 689030352}
   m_PrefabAsset: {fileID: 0}
 --- !u!65 &333695865
+=======
+  m_GameObject: {fileID: 160057781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 356ab8007322e7c46b6896fce8da6d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSpeed: 1
+  maxSpeed: 1
+  Acceleration: 0
+  jumpForce: 0
+  time: 0
+  Player: {fileID: 160057786}
+--- !u!65 &160057783
+>>>>>>> parent of 8729486 (Made Player To Walk Inside Map Borders)
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 333695863}
+=======
+  m_GameObject: {fileID: 160057781}
+>>>>>>> parent of 8729486 (Made Player To Walk Inside Map Borders)
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD
   m_Size: {x: 0.24772285, y: 0.18971777, z: 0.24310139}
   m_Center: {x: 0.00290137, y: 0.04409878, z: -0.00059036777}
 --- !u!1001 &337501901
@@ -13628,10 +13673,17 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!136 &376581831
 CapsuleCollider:
+=======
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &160057784
+MeshRenderer:
+>>>>>>> parent of 8729486 (Made Player To Walk Inside Map Borders)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 376581829}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -15993,10 +16045,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!136 &425581932
 CapsuleCollider:
+=======
+  m_GameObject: {fileID: 160057781}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &160057785
+MeshFilter:
+>>>>>>> parent of 8729486 (Made Player To Walk Inside Map Borders)
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 425581931}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -25893,6 +25986,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0873148ac8296f43bcd8ca9f39271e3, type: 3}
+=======
+  m_GameObject: {fileID: 160057781}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &160057786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160057781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4616819, z: 23.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> parent of 8729486 (Made Player To Walk Inside Map Borders)
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -77282,9 +77394,15 @@ PrefabInstance:
       propertyPath: Acceleration
       value: 1
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 8288708102400861550, guid: 78fd781bc9fa17c4492a443e55f9de8a, type: 3}
       propertyPath: currentSpeed
       value: 10
+=======
+    - target: {fileID: 5518010228576802379, guid: b16f849d3949e0b4ba26706a8f78a039, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+>>>>>>> parent of 8729486 (Made Player To Walk Inside Map Borders)
       objectReference: {fileID: 0}
     - target: {fileID: 8288708102479947590, guid: 78fd781bc9fa17c4492a443e55f9de8a, type: 3}
       propertyPath: m_LocalRotation.x

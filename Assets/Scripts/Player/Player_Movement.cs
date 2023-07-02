@@ -16,7 +16,6 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] float Acceleration;
     [SerializeField] float jumpForce;
     [SerializeField] float time;
-    [SerializeField] GameObject Player;
     private Vector2 touchStartPos, touchEndPos;
     private Touch touch;
     // private float leftMoveLimit, rightMoveLimit;
@@ -47,57 +46,45 @@ public class Player_Movement : MonoBehaviour
     void PlayerMovement()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
-        TouchInputControl();
+        LeftRightSwipe();
     }
 
     #region TouchInput
-    void TouchInputControl()
-    {
 
+    void LeftRightSwipe()
+    {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             touchStartPos = Input.GetTouch(0).position;
 
         }
-        ////return later for improvement
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
-            transform.position = new Vector3(transform.position.x + touch.deltaPosition.x * currentSpeed,
-                transform.position.y, transform.position.z);
-
             touchEndPos = Input.GetTouch(0).position;
+
+            
             if (touchEndPos.x < touchStartPos.x)
             {
-                if (Player.transform.position.x > map_boundary.internal_left)
-                {
-                    LeftMove();
-
-                }
+                LeftMove();
             }
             if (touchEndPos.x > touchStartPos.x)
             {
-                if (Player.transform.position.x < map_boundary.internal_right)
-                {
-                    RightMove();
-
-                }
+                RightMove();
             }
         }
-        #endregion
-        //Debug.Log("Touch Input is active:");
+
+
     }
-    #region SideWays Movement
-    void LeftMove()
-    {
-        //wip
-        Accelerate(Acceleration);
-        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
-    }
+
     void RightMove()
     {
-        //wip
-        Accelerate(Acceleration);
+
         transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
+    }
+    void LeftMove()
+    {
+        transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
+
     }
     #endregion
     #endregion

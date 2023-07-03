@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 0fcbe5410faa21041981fb421e4b0606
+=======
+<<<<<<<< HEAD:Assets/Packeges/Animations_Kevin Iglesias.meta
+guid: 93e53042616c0074b9d8e65ea37dfb2a
+========
+guid: 99cbdcd6a5a258849a001a3f0e3a9285
+>>>>>>>> Drop-CherryPicks:Assets/Materials.meta
+>>>>>>> Master
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

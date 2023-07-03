@@ -81,7 +81,7 @@ public class Player_Movement : MonoBehaviour
         }
     }
     //3. jump
-    //4. slide
+    //4. slide\roll
     //}
    
 

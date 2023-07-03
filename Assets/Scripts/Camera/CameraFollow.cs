@@ -1,19 +1,13 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class CameraFollow : MonoBehaviour
 {
     public Transform Target;
-    public Vector3 CameraOffset = new Vector3(0, 2, -10);
-    public float SmoothTime = 0.50f;
-    Vector3 currentVelocity;
-   
+    public Vector3 Offset = new Vector3(0, 2, -10);
     private void LateUpdate()
     {
-        transform.position = Vector3.SmoothDamp(
-            transform.position,
-            Target.position + CameraOffset,
-            ref currentVelocity,
-            SmoothTime
-            );
+        transform.position = Target.position + Offset;
     }
 }

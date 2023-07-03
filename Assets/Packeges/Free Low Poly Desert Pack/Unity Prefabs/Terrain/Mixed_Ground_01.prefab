@@ -32,9 +32,12 @@ Transform:
   m_ConstrainProportionsScale: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Children: []
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 0df0282 (Revert "wtf")
 =======
 >>>>>>> parent of 0df0282 (Revert "wtf")
 <<<<<<< Updated upstream
@@ -413,6 +416,9 @@ Transform:
   - {fileID: 8994021905834089799}
 >>>>>>> Joined-Branches
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 0df0282 (Revert "wtf")
+=======
 >>>>>>> parent of 0df0282 (Revert "wtf")
 =======
 >>>>>>> parent of 0df0282 (Revert "wtf")
@@ -471,8 +477,11 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 0df0282 (Revert "wtf")
 =======
 >>>>>>> parent of 0df0282 (Revert "wtf")
 <<<<<<< Updated upstream
@@ -27547,6 +27556,9 @@ Transform:
 =======
 >>>>>>> Joined-Branches
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 0df0282 (Revert "wtf")
+=======
 >>>>>>> parent of 0df0282 (Revert "wtf")
 =======
 >>>>>>> parent of 0df0282 (Revert "wtf")

@@ -29,6 +29,19 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+  m_Children: []
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0df0282 (Revert "wtf")
+=======
+>>>>>>> parent of 0df0282 (Revert "wtf")
+=======
+>>>>>>> parent of 2883992 (wtf)
 <<<<<<< Updated upstream
   m_Children: []
 =======
@@ -376,6 +389,41 @@ Transform:
   - {fileID: 8994021904778283677}
   - {fileID: 8994021905202216892}
 >>>>>>> Stashed changes
+<<<<<<< HEAD
+=======
+  - {fileID: 1289509947}
+  - {fileID: 1256221645}
+  - {fileID: 1758428038}
+  - {fileID: 1757443872}
+  - {fileID: 1344930874}
+  - {fileID: 2008707286}
+  - {fileID: 2043674148}
+  - {fileID: 1295936432}
+  - {fileID: 1701350850}
+  - {fileID: 1348145717}
+  - {fileID: 5263193849394271866}
+  - {fileID: 4416347177123044035}
+  - {fileID: 4416347176867098103}
+  - {fileID: 4511726001708713}
+  - {fileID: 5263193850546079285}
+  - {fileID: 5263193850243992485}
+  - {fileID: 4416347176744705670}
+  - {fileID: 5263193850974004102}
+  - {fileID: 8994021905811477363}
+  - {fileID: 8994021904465594533}
+  - {fileID: 8994021904778283677}
+  - {fileID: 8994021905202216892}
+  - {fileID: 8994021905834089799}
+>>>>>>> Joined-Branches
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 0df0282 (Revert "wtf")
+=======
+>>>>>>> parent of 0df0282 (Revert "wtf")
+=======
+>>>>>>> parent of 0df0282 (Revert "wtf")
+=======
+>>>>>>> parent of 2883992 (wtf)
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -429,6 +477,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 0df0282 (Revert "wtf")
+=======
+>>>>>>> parent of 0df0282 (Revert "wtf")
+=======
+>>>>>>> parent of 2883992 (wtf)
 <<<<<<< Updated upstream
 =======
 --- !u!65 &7185442350452067327
@@ -25858,3 +25918,15 @@ Transform:
   m_PrefabInstance: {fileID: 2141358835}
   m_PrefabAsset: {fileID: 0}
 >>>>>>> Stashed changes
+<<<<<<< HEAD
+=======
+>>>>>>> Joined-Branches
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 0df0282 (Revert "wtf")
+=======
+>>>>>>> parent of 0df0282 (Revert "wtf")
+=======
+>>>>>>> parent of 0df0282 (Revert "wtf")
+=======
+>>>>>>> parent of 2883992 (wtf)

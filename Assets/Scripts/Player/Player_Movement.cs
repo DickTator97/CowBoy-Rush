@@ -18,40 +18,17 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] float time;
     public Transform Player;
     private Vector2 touchStartPos, touchEndPos;
-    private Touch touch;
 
 
-    // private float leftMoveLimit, rightMoveLimit;
+
     void Start()
     {
         Accelerate(Acceleration);
     }
     private void Update()
     {
-        //leftMoveLimit = map_boundary.internal_left;
-        // rightMoveLimit = map_boundary.internal_right;
-        //PlayerMovement();
-        //LeftRightSwipe();
-        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed, Space.World);
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (this.gameObject.transform.position.x > map_boundary.internal_left)
-            {
-
-                transform.Translate(Vector3.left * Time.deltaTime * currentSpeed, Space.World);
-            }
-
-
-        }
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (this.gameObject.transform.position.x < map_boundary.internal_right)
-            {
-
-                transform.Translate(Vector3.right * Time.deltaTime * currentSpeed, Space.World);
-            }
-
-        }
+        PlayerMovement();
+      
 
     }
     #region fix
@@ -63,7 +40,7 @@ public class Player_Movement : MonoBehaviour
     void PlayerMovement()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
-
+        LeftRightSwipe();
     }
 
     #region TouchInput
@@ -94,7 +71,7 @@ public class Player_Movement : MonoBehaviour
     }
     void RightMove()
     {
-        if (gameObject.transform.position.x > map_boundary.internal_left)
+        if (Player.transform.position.x < map_boundary.internal_right)
         {
             transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
 
@@ -102,7 +79,7 @@ public class Player_Movement : MonoBehaviour
     }
     void LeftMove()
     {
-        if (gameObject.transform.position.x < map_boundary.internal_right)
+        if (Player.transform.position.x > map_boundary.internal_left)
         {
             transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
 

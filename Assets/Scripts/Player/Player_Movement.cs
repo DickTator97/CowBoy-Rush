@@ -1,12 +1,9 @@
 using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
-    //movement
-    // Add A boolean condition to check if game started/Other Conditions Are Met(In Game Manager)
-    //1. move player forward with add force
-    //2. move player sideways with touch input
-    //3. make player jump while dragging finger upwards
-    //4. make player slide while dragging finger downwards
+
+    //1. make player jump while dragging finger upwards
+    //2. make player slide while dragging finger downwards
     //score
     //life 
     //animations (if existing)
@@ -27,25 +24,23 @@ public class Player_Movement : MonoBehaviour
     }
     private void Update()
     {
+    
         PlayerMovement();
       
 
     }
-    #region fix
-    //2. left right movement
-    //3. jump
-    //4. slide
-    //}
     #region Movement
+   
+  
+   
     void PlayerMovement()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * (currentSpeed + Acceleration), Space.World);
         LeftRightSwipe();
     }
-
     #region TouchInput
-
-    void LeftRightSwipe()
+    #endregion
+   void LeftRightSwipe()
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -85,8 +80,14 @@ public class Player_Movement : MonoBehaviour
 
         }
     }
-    #endregion
-    #endregion
+    //3. jump
+    //4. slide
+    //}
+   
+
+
+
+#endregion
     //void Jump()
     //{
 
@@ -144,4 +145,3 @@ public class Player_Movement : MonoBehaviour
 
 
 }
-#endregion

@@ -153,7 +153,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &326478275
 MonoBehaviour:
@@ -182,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7185442349280543512, guid: cbdcf9e1e97b9ca4ea64aa1cf0022474, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7185442349280543512, guid: cbdcf9e1e97b9ca4ea64aa1cf0022474, type: 3}
       propertyPath: m_LocalPosition.x
@@ -226,7 +226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbdcf9e1e97b9ca4ea64aa1cf0022474, type: 3}
---- !u!4 &1053424483 stripped
+--- !u!4 &1605004994 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 397355480955740675, guid: b3c5fc096946127428706b834fc601ba, type: 3}
   m_PrefabInstance: {fileID: 397355480841853280}
@@ -314,7 +314,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2008612432
 MonoBehaviour:
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dab62fd76bd6eb46aa4b0ca5b4e2600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 1053424483}
+  Target: {fileID: 1605004994}
   Offset: {x: 0, y: 2, z: -10}
 --- !u!1001 &397355480841853280
 PrefabInstance:
@@ -343,7 +343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 397355480955740675, guid: b3c5fc096946127428706b834fc601ba, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 397355480955740675, guid: b3c5fc096946127428706b834fc601ba, type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameManeger : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     #region UI 
     #region Main Menu

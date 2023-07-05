@@ -17,11 +17,15 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] float Acceleration;
     [SerializeField] float jumpForce;
     [SerializeField] float time;
-    //[SerializeField] GameObject go;
+    [SerializeField] GameObject Player;
+    private float difference;
+    private float leftBoundary, rightBoundary;
     private Vector2 touchStartPos, touchEndPos;
 
     void Start()
     {
+        leftBoundary = map_boundary.internal_left;
+        rightBoundary = map_boundary.internal_right;
         Accelerate(Acceleration);
 
     }
@@ -98,7 +102,7 @@ public class Player_Movement : MonoBehaviour
     {
         //wip
         Accelerate(Acceleration);
-        if (this.gameObject.transform.position.x > map_boundary.internal_left)
+        if (this.gameObject.transform.position.x > map_boundary.transform.position.x)
         {
 
             transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
@@ -110,7 +114,7 @@ public class Player_Movement : MonoBehaviour
         //wip
         Accelerate(Acceleration);
 
-        if (this.gameObject.transform.position.x < map_boundary.internal_right)
+        if (this.gameObject.transform.position.x < map_boundary.transform.position.x)
         {
 
             transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
@@ -131,7 +135,30 @@ public class Player_Movement : MonoBehaviour
     #region Acceleration
     void Accelerate(float addedSpeed)
     {
-        currentSpeed += addedSpeed;
+
+        float diff = difference;
+        diff = (currentSpeed + addedSpeed) - maxSpeed;
+        if (diff < 0)
+        {
+            diff = 0;
+        }
+        // add checks for conditions for acceleration
+        //1.current speed +added speed Cannot be higher than max speed
+        //2.cannot accelerate past max speed
+        //3. add a difference variable, if the calculations add additional speed 
+        //subtract the difference 
+
+        if (currentSpeed < maxSpeed || currentSpeed + addedSpeed < maxSpeed)
+
+        {
+
+            currentSpeed += addedSpeed;
+
+            if (currentSpeed + addedSpeed > maxSpeed)
+            {
+                maxSpeed -= diff;
+            }
+        }
 
         if (currentSpeed < 0)
         {

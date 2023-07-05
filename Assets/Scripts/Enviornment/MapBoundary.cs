@@ -6,8 +6,8 @@ using UnityEngine;
 public class MapBoundary : MonoBehaviour
 {
 
-    [SerializeField] static float left_bound;
-    [SerializeField] static float right_bound;
+    [SerializeField] static float left_bound=-11;
+    [SerializeField] static float right_bound=11;
     public float internal_left;
     public float internal_right;
     void Update()

@@ -98,7 +98,7 @@ public class Player_Movement : MonoBehaviour
 
 
     #region SideWays Movement
-    void LeftMove()
+    Vector3 LeftMove()
     {
         //wip
         Accelerate(Acceleration);
@@ -106,10 +106,11 @@ public class Player_Movement : MonoBehaviour
         {
 
             transform.Translate(Vector3.left * Time.deltaTime * (currentSpeed/*+Acceleration*/), Space.World);
-        }
 
+        }
+        return gameObject.transform.position;
     }
-    void RightMove()
+    Vector3 RightMove()
     {
         //wip
         Accelerate(Acceleration);
@@ -119,7 +120,7 @@ public class Player_Movement : MonoBehaviour
 
             transform.Translate(Vector3.right * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
         }
-
+        return gameObject.transform.position;
     }
     #endregion
     #endregion

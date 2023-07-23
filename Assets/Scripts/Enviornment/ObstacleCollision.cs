@@ -9,9 +9,9 @@ public class ObstacleCollision : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
-        thePlayer.GetComponent<Player_Movement>().enabled = false;
-        charModel.GetComponent<Animator>().Play("Stumble Backwards");
+        this.gameObject.GetComponent<CapsuleCollider>().enabled = true;
+        thePlayer.GetComponent<Player_Movement>().enabled = true;
+       charModel.GetComponent<Animator>().Play("Stumble Backwards");
 
     }
 

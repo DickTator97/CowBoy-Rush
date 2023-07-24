@@ -17,7 +17,8 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] float time;
     private Vector2 touchStartPos, touchEndPos;
-   // private float leftMoveLimit, rightMoveLimit;
+    private Touch touch;
+    // private float leftMoveLimit, rightMoveLimit;
     void Start()
     {
         Accelerate(Acceleration);
@@ -25,7 +26,7 @@ public class Player_Movement : MonoBehaviour
     private void Update()
     {
         //leftMoveLimit = map_boundary.internal_left;
-       // rightMoveLimit = map_boundary.internal_right;
+        // rightMoveLimit = map_boundary.internal_right;
         PlayerMovement();
 
     }
@@ -47,19 +48,22 @@ public class Player_Movement : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * (currentSpeed /*+ Acceleration*/), Space.World);
         TouchInputControl();
     }
-  
+
     #region TouchInput
     void TouchInputControl()
     {
-        
+      
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             touchStartPos = Input.GetTouch(0).position;
-          
+
         }
-        //return later for improvement
+        ////return later for improvement
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
+            transform.position = new Vector3(transform.position.x + touch.deltaPosition.x * currentSpeed,
+                transform.position.y, transform.position.z);
+
             touchEndPos = Input.GetTouch(0).position;
             if (touchEndPos.x < touchStartPos.x)
             {
